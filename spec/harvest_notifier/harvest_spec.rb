@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# RSpec/MultipleMemoizedHelpers:
+#   Max: 5
+
 describe HarvestNotifier::Harvest do
   subject(:harvest) { described_class.new(token, account_id) }
 
@@ -12,7 +15,7 @@ describe HarvestNotifier::Harvest do
 
     before do
       stub_request(:get, "https://api.harvestapp.com/api/v2/users.json")
-        .with(headers: headers)
+        .with(headers:)
         .to_return(body: harvest_users_list.to_json)
     end
 
@@ -30,14 +33,13 @@ describe HarvestNotifier::Harvest do
 
     before do
       stub_request(:get, "https://api.harvestapp.com/api/v2/reports/time/team.json#{query}")
-        .with(headers: headers)
+        .with(headers:)
         .to_return(body: time_report_list.to_json)
     end
 
     context "when daily time report" do
       let(:from) { Date.new(2020, 4, 15) }
       let(:to) { Date.new(2020, 4, 15) }
-
       let(:time_report_list) { fixture("harvest_daily_time_report") }
 
       it "success" do
@@ -52,7 +54,6 @@ describe HarvestNotifier::Harvest do
     context "when weekly time report" do
       let(:from) { Date.new(2020, 4, 13) }
       let(:to) { Date.new(2020, 4, 17) }
-
       let(:time_report_list) { fixture("harvest_weekly_time_report") }
 
       it "success" do

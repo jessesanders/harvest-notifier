@@ -8,6 +8,9 @@ AllCops:
 RSpec/MultipleExpectations:
   Max: 2
 
+RSpec/MultipleMemoizedHelpers:
+  Max: 11
+
 RSpec/MessageSpies:
   EnforcedStyle: receive
 

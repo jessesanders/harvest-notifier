@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe HarvestNotifier::Notification do
-  subject(:notification) { described_class.new(slack_double, update_url: update_url) }
+  subject(:notification) { described_class.new(slack_double, update_url) }
 
   let(:slack_double) { instance_double(HarvestNotifier::Slack) }
 

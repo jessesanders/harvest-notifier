@@ -38,7 +38,7 @@ describe HarvestNotifier::Base do
 
   describe "#create_daily_report" do
     it "creates daily notification" do
-      expect(report_double).to receive(:daily) { users_data }
+      allow(report_double).to receive(:daily) { users_data }
       expect(notification_double).to receive(:deliver)
         .with(:daily_report, users: users_data, date: Date.new(2020, 4, 15))
 
@@ -48,7 +48,7 @@ describe HarvestNotifier::Base do
 
   describe "#create_weekly_report" do
     it "creates weekly notification" do
-      expect(report_double).to receive(:weekly) { users_data }
+      allow(report_double).to receive(:weekly) { users_data }
       expect(notification_double).to receive(:deliver)
         .with(:weekly_report, users: users_data, date_from: Date.new(2020, 4, 6), date_to: Date.new(2020, 4, 10))
 

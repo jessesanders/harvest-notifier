@@ -8,7 +8,7 @@ module HarvestNotifier
     include HTTParty
 
     base_uri "https://api.harvestapp.com/api/v2"
-    logger ::Logger.new STDOUT
+    logger ::Logger.new $stdout
 
     def initialize(token, account_id)
       headers = { "Authorization" => "Bearer #{token}", "Harvest-Account-Id" => account_id }

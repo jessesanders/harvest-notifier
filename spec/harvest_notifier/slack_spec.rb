@@ -11,7 +11,7 @@ describe HarvestNotifier::Slack do
 
     before do
       stub_request(:post, "https://slack.com/api/chat.postMessage")
-        .with(headers: headers, body: message)
+        .with(headers:, body: message)
         .to_return(status: 200)
     end
 
@@ -27,7 +27,7 @@ describe HarvestNotifier::Slack do
 
     before do
       stub_request(:post, update_url)
-        .with(headers: headers, body: message)
+        .with(headers:, body: message)
         .to_return(status: 200)
     end
 
@@ -41,7 +41,7 @@ describe HarvestNotifier::Slack do
 
     before do
       stub_request(:get, "https://slack.com/api/users.list")
-        .with(headers: headers)
+        .with(headers:)
         .to_return(body: slack_users_list.to_json)
     end
 

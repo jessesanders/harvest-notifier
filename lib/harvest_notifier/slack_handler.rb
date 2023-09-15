@@ -54,7 +54,7 @@ module HarvestNotifier
       type, from, to = action_value.split(":")
 
       {
-        type: type,
+        type:,
         from: from&.to_date,
         to: to&.to_date
       }

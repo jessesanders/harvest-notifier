@@ -8,7 +8,7 @@ describe HarvestNotifier::Templates::Congratulation do
       let(:date) { Date.new(2020, 4, 9) }
 
       it "generates template with Congratulation" do
-        expect(template.generate(date: date))
+        expect(template.generate(date:))
           .to include("Hooray, everyone reported the working hours for *April 9th*!")
       end
     end
@@ -18,7 +18,7 @@ describe HarvestNotifier::Templates::Congratulation do
       let(:date_to) { Date.new(2020, 4, 10) }
 
       it "generates template with Congratulation" do
-        expect(template.generate(date_from: date_from, date_to: date_to))
+        expect(template.generate(date_from:, date_to:))
           .to include("Hooray, everyone reported the working hours for *06 Apr - 10 Apr 2020*!")
       end
     end
