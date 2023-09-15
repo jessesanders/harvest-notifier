@@ -7,5 +7,5 @@ if ENV.fetch("ROLLBAR_ACCESS_TOKEN", false)
     config.access_token = ENV["ROLLBAR_ACCESS_TOKEN"]
   end
 
-  Rollbar.info("Hello world!") # Sending an arbitrary message to Rollbar
+  Rollbar.info("Application initialized") # Sending an arbitrary message to Rollbar
 end
