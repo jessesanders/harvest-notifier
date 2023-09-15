@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-# RSpec/MultipleMemoizedHelpers:
-#   Max: 5
-
 describe HarvestNotifier::Harvest do
   subject(:harvest) { described_class.new(token, account_id) }
 

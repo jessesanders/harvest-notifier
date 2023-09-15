@@ -13,12 +13,8 @@ module HarvestNotifier
     attr_reader :harvest_client, :slack_client, :notification, :report
 
     def initialize(notification_update_url: nil)
-      # require "rollbar"
-
       @harvest_client = Harvest.new(ENV.fetch("HARVEST_TOKEN"), ENV.fetch("HARVEST_ACCOUNT_ID"))
       @slack_client = Slack.new(ENV.fetch("SLACK_TOKEN"))
-
-      # Rollbar.info("HARVEST_TOKEN: " + @harvest_client + "SLACK_TOKEN: " + @slack_client)
 
       @notification = Notification.new(slack_client, update_url: notification_update_url)
       @report = Report.new(harvest_client, slack_client)
