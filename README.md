@@ -55,6 +55,7 @@ This integration allows to:
     # MISSING_HOURS_THRESHOLD is a variable that indicates the minimum threshold of hours at which the employee will not be notified in Slack.
     # For example, 2.5 or 4. The default threshold is 1 hour. Leave empty if satisfied with the default value.
     ```
+The `HARVEST_URL` environment variable must be a full qualified URL (https://briebug.harvestapp.com)
 
 4. Add job in Heroku Scheduler
 
