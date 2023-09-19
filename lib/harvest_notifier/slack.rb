@@ -5,7 +5,7 @@ require "httparty"
 module HarvestNotifier
   class Slack
     include HTTParty
-  include Rollbar
+    include Rollbar
 
     base_uri "https://slack.com/api"
     headers "Content-type" => "application/json"
@@ -16,7 +16,7 @@ module HarvestNotifier
     end
 
     def post_message(body)
-      Rollbar.info(body);
+      Rollbar.info(body)
       self.class.post("/chat.postMessage", body:)
     end
 
